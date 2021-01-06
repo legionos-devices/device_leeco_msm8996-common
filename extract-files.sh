@@ -3,17 +3,7 @@
 # Copyright (C) 2016 The CyanogenMod Project
 # Copyright (C) 2017-2020 The LineageOS Project
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 #
 
 set -e
@@ -22,9 +12,9 @@ set -e
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-LINEAGE_ROOT="${MY_DIR}"/../../..
+ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="${LINEAGE_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
+HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -35,13 +25,17 @@ source "${HELPER}"
 CLEAN_VENDOR=true
 
 ONLY_COMMON=
-SECTION=
+ONLY_TARGET=
 KANG=
+SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        -o | --only-common )
-                ONLY_COMMON=false
+        --only-common )
+                ONLY_COMMON=true
+                ;;
+        --only-target )
+                ONLY_TARGET=true
                 ;;
         -n | --no-cleanup )
                 CLEAN_VENDOR=false
@@ -94,11 +88,6 @@ function blob_fixup() {
         sed -i -e 's|vulkan.msm8953.so|vulkan.msm8996.so|g' "${2}"
         ;;
 
-    # use /sbin instead of /system/bin for TWRP
-    recovery/root/sbin/qseecomd)
-        sed -i -e 's|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g' "${2}"
-        ;;
-
     # Patch blobs for VNDK
     vendor/lib/libmmcamera2_stats_modules.so)
         sed -i "s|libgui.so|libfui.so|g" "${2}"
@@ -147,24 +136,19 @@ function blob_fixup() {
     esac
 }
 
-# Initialize the helper for common device
-setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" true "${CLEAN_VENDOR}"
+if [ -z "${ONLY_TARGET}" ]; then
+    # Initialize the helper for common device
+    setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
-extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
-        "${KANG}" --section "${SECTION}"
-
-if [ -s "${MY_DIR}/proprietary-files-twrp.txt" ]; then
-    extract "${MY_DIR}/proprietary-files-twrp.txt" "${SRC}" \
-        "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 fi
 
 if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
     # Reinitialize the helper for device
     source "${MY_DIR}/../${DEVICE}/extract-files.sh"
-    setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}" false "${CLEAN_VENDOR}"
+    setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
-    extract "${MY_DIR}/../${DEVICE}/proprietary-files.txt" "${SRC}" \
-            "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/../${DEVICE}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 fi
 
 "${MY_DIR}/setup-makefiles.sh"
