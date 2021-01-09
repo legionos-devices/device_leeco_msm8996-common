@@ -479,7 +479,7 @@ PRODUCT_PACKAGES += \
     libaacwrapper \
     libnl
 
-# PRODUCT_BOOT_JARS += \
+PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Model is set via init library
