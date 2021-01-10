@@ -11,3 +11,9 @@ allow system_app sysfs_ir_enable:file { rw_file_perms };
 #DeviceSettings.apk need to get and set camera_prop
 get_prop(system_app, camera_prop)
 set_prop(system_app, camera_prop)
+
+# Power supply permissions for battery health
+allow system_app sysfs_battery_supply:dir { search };
+allow system_app sysfs_battery_supply:file { read open getattr };
+allow system_app sysfs_batteryinfo:dir { search };
+allow system_app sysfs_batteryinfo:file { read open getattr };
