@@ -1,1 +1,6 @@
 get_prop(untrusted_app, camera_prop)
+
+#R-11 address theme_prop
+allow untrusted_app theme_prop:file read;
+allow untrusted_app theme_prop:file open;
+allow untrusted_app theme_prop:file getattr;

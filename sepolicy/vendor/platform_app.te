@@ -1,2 +1,5 @@
 allow platform_app sysfs_kgsl:dir search;
 allow platform_app sysfs_ir_enable:file { rw_file_perms };
+
+#Dolby R-11
+allow platform_app default_android_hwservice:hwservice_manager find;
