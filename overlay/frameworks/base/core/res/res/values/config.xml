@@ -462,8 +462,8 @@
     <integer name="config_longPressOnAppSwitchBehavior">1</integer>
     
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
-         autodetected from the Configuration. -->
-    <bool name="config_showNavigationBar">true</bool>
+         autodetected from the Configuration. 
+    <bool name="config_showNavigationBar">true</bool> -->
 
     <!-- Whether or not swipe up gesture is enabled by default -->
     <bool name="config_swipe_up_gesture_default">true</bool>
