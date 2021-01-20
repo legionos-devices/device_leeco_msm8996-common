@@ -18,4 +18,5 @@ allow init sysfs_scsi_devices_other:dir relabelfrom;
 allow init sysfs_scsi_devices_other:file relabelfrom;
 
 # R-11 fix more denials
-allow init sysfs_scsi_devices_0000:file { write };
+allow init sysfs_scsi_devices_0000:file { write open };
+allow init sysfs_scsi_devices_other:file { write open };
