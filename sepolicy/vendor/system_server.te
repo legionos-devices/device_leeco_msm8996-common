@@ -11,3 +11,7 @@ allow system_server default_android_service:service_manager { add };
 allow system_server userspace_reboot_exported_prop:file { r_file_perms };
 allow system_server exported_camera_prop:file { r_file_perms };
 
+#Smart charging
+allow system_server sysfs_battery_supply:file { getattr open read write };
+allow system_server userspace_reboot_config_prop:file { read };
+allow system_server sysfs_batteryinfo:file { getattr open read write };
