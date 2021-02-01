@@ -2,13 +2,25 @@
   {
     "repository": "legionos-devices/kernel_leeco_msm8996",
     "target_path": "kernel/leeco/msm8996"
-	"branch":      "legion-r11.1"
+	"branch":      "r11.1"
 	"remote": "github"
   },
   {
     "repository" : "legionos-devices/android_device_leeco_msm8996-common",
     "target_path": "device/leeco/msm8996-common",
-    "branch": "legion-r11.1",
+    "branch": "legion-11",
+    "remote": "github"
+  },
+  {
+    "repository" : "legionos-devices/android_device_leeco_x2",
+    "target_path": "device/leeco/x2",
+    "branch": "legion-11",
+    "remote": "github"
+  },
+  {
+    "repository" : "legionos-devices/proprietary_vendor_leeco",
+    "target_path": "vendor/leeco",
+    "branch": "legion-11",
     "remote": "github"
   }
 ]
