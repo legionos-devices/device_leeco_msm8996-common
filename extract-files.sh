@@ -119,7 +119,7 @@ function blob_fixup() {
     # Add shim for libbase LogMessage functions
     vendor/bin/imsrcsd | vendor/lib64/lib-uceservice.so)
         for  LIBBASE_SHIM in $(grep -L "libbase_shim.so" "${2}"); do
-            "${PATCHELF}" --add-needed "libbase_shim.so" "$LIBBASE_SHIM"
+        "${PATCHELF}" --add-needed "libbase_shim.so" "$LIBBASE_SHIM"
         done
         ;;
 
