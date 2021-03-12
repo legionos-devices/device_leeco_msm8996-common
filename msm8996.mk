@@ -195,7 +195,7 @@ PRODUCT_PACKAGES += \
 
 # Doze mode
 PRODUCT_PACKAGES += \
-    Doze
+    DeviceDoze
 
 # DRM
 PRODUCT_PACKAGES += \
