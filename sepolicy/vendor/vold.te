@@ -6,4 +6,4 @@ allow vold sysfs_scsi_devices_other:file rw_file_perms;
 allow vold same_process_hal_file:file { execute getattr open read };
 
 # R-11 fix more denials
-allow vold sysfs_mmc_host:file rw_file_perms;
+allow vold sysfs_mmc_host:file w_file_perms;
