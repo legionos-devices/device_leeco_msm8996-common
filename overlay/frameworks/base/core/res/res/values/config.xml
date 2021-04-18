@@ -39,24 +39,14 @@
          Zone N + 1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">,
-        <item>6</item>
-        <item>8</item>
-        <item>10</item>
-        <item>15</item>
-        <item>30</item>
-        <item>50</item>
-        <item>100</item>
-        <item>230</item>
-        <item>400</item>
-        <item>500</item>
-        <item>650</item>
-        <item>825</item>
-        <item>1000</item>
-        <item>2500</item>
-        <item>5000</item>
-        <item>6250</item>
-        <item>7500</item>
-        <item>10000</item>
+        <item>1</item>
+        <item>4</item>
+        <item>45</item>
+        <item>1025</item>
+        <item>1480</item>
+        <item>2940</item>
+        <item>3840</item>
+        <item>6000</item>
         <item>12000</item>
     </integer-array>
 
@@ -65,26 +55,16 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>12</item>     <!-- 0-5 -->
-        <item>16</item>     <!-- 6-7 -->
-        <item>18</item>     <!-- 8-9 -->
-        <item>20</item>     <!-- 10-14 -->
-        <item>25</item>     <!-- 15-29 -->
-        <item>28</item>     <!-- 30-49 -->
-        <item>34</item>     <!-- 50-99 -->
-        <item>37</item>     <!-- 100-229 -->
-        <item>41</item>     <!-- 239-399 -->
-        <item>48</item>     <!-- 400-499 -->
-        <item>57</item>     <!-- 500-649 -->
-        <item>75</item>     <!-- 650-824 -->
-        <item>81</item>     <!-- 825-999 -->
-        <item>90</item>     <!-- 1000-2499 -->
-        <item>100</item>    <!-- 2500-4999 -->
-        <item>125</item>    <!-- 5000-6249 -->
-        <item>165</item>    <!-- 6250-7499 -->
-        <item>200</item>    <!-- 7500-9999 -->
-        <item>225</item>    <!-- 10000-11999 -->
-        <item>255</item>    <!-- 12000-19417 (max value of light sensor) -->
+        <item>3</item>
+        <item>7</item>
+        <item>11</item>
+        <item>26</item>
+        <item>60</item>
+        <item>108</item>
+        <item>125</item>
+        <item>155</item>
+        <item>205</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
@@ -418,6 +398,7 @@
     
     <!-- Button brightness -->
     <integer name="config_button_brightness_default">20</integer>
+	<integer name="config_buttonBrightnessSettingDefault">20</integer>
 
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
