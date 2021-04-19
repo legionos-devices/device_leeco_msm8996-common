@@ -37,59 +37,70 @@
          ...
          Zone N:        array[N - 1] <= LUX < array[N]
          Zone N + 1     array[N] <= LUX < infinity
-         Must be overridden in platform specific overlays -->
+         Must be overridden in platform specific overlays. Default EUI 30s values.  -->
     <integer-array name="config_autoBrightnessLevels">,
-        <item>1</item>
-        <item>4</item>
-        <item>45</item>
-        <item>1025</item>
-        <item>1480</item>
-        <item>2940</item>
-        <item>3840</item>
-        <item>6000</item>
-        <item>12000</item>
+        <item>5</item>
+        <item>13</item>
+        <item>65</item>
+        <item>450</item>
+        <item>800</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>18000</item>
+        <item>20000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
-         This must be overridden in platform specific overlays -->
+         This must be overridden in platform specific overlays. Default EUI 30s values. -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>3</item>
-        <item>7</item>
-        <item>11</item>
-        <item>26</item>
-        <item>60</item>
-        <item>108</item>
+        <item>5</item>
+        <item>24</item>
         <item>125</item>
-        <item>155</item>
-        <item>205</item>
-        <item>255</item>
+        <item>322</item>
+        <item>584</item>
+        <item>896</item>
+        <item>1072</item>
+        <item>1597</item>
+        <item>2060</item>
+        <item>4095</item>
     </integer-array>
 
-    <!-- Minimum screen brightness setting allowed by the power manager.
-         The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+    <!-- Minimum-Maximum screen brightness setting allowed by the power manager.
+         The user is forbidden from setting the brightness below this level. Default EUI 30s values. -->
+    <integer name="config_screenBrightnessSettingMinimum">2</integer>
+    <integer name="config_screenBrightnessSettingMaximum">4095</integer>
 
     <!-- Default screen brightness setting.
-         Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">87</integer>
+         Must be in the range specified by minimum and maximum. Default EUI 30s values. -->
+    <integer name="config_screenBrightnessSettingDefault">1376</integer>
 
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
-         that can be set by the user. -->
+         that can be set by the user. Default EUI 30s values. -->
     <integer name="config_screenBrightnessDim">8</integer>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
-         hysteresis threshold. -->
+         hysteresis threshold. Default EUI 30s values. -->
     <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
-
-    <!-- Enable adjusting the button backlight -->
+	
+	<!-- Enable adjusting the button backlight. Default EUI 30s values. -->
     <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+
+    <!-- Taken from EUI 30s screen brightness settings. Default EUI 30s values. -->
+    <integer name="config_autoBrightnessLightSensorRate">250</integer>
+    <integer name="config_screenBrightnessDark">8</integer>
+    <integer name="config_screenBrightnessSettingDefaultVR">1433</integer>
+	
+	<!-- Screen brightness used to dim the screen while dozing in a very low power state.
+         May be less than the minimum allowed brightness setting
+         that can be set by the user. Default EUI 30s values. -->
+    <integer name="config_screenBrightnessDoze">12</integer>
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
@@ -267,11 +278,6 @@
     -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 
-    <!-- Screen brightness used to dim the screen while dozing in a very low power state.
-         May be less than the minimum allowed brightness setting
-         that can be set by the user. -->
-    <integer name="config_screenBrightnessDoze">12</integer>
-
     <!-- Flag specifying whether VoLTE is available on device -->
     <bool name="config_device_volte_available">true</bool>
 
@@ -398,7 +404,7 @@
     
     <!-- Button brightness -->
     <integer name="config_button_brightness_default">20</integer>
-	<integer name="config_buttonBrightnessSettingDefault">20</integer>
+    <integer name="config_buttonBrightnessSettingDefault">20</integer>
 
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
