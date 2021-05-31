@@ -246,6 +246,10 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
+# IORAPD
+PRODUCT_PACKAGES += \
+    iorap-app-startup-runner	
+	
 # IPA Manager
 PRODUCT_PACKAGES += \
     ipacm \

@@ -124,6 +124,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.VT_HYBRID_ENABLE=1 \
     persist.vendor.qti.telephony.vt_cam_interface=1
 
+# IORAP
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.iorapd.enable=true
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     vidc.debug.perf.mode=2 \
