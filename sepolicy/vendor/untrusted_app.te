@@ -1,6 +1,7 @@
 get_prop(untrusted_app, camera_prop)
 
-#R-11 address theme_prop
-allow untrusted_app theme_prop:file read;
-allow untrusted_app theme_prop:file open;
-allow untrusted_app theme_prop:file getattr;
+#R-11 address denials
+allow untrusted_app theme_prop:file { open read getattr };
+allow untrusted_app proc_zoneinfo:file { read open getattr };
+allow untrusted_app app_data_file:file { read execute };
+allow untrusted_app proc:file { read open getattr };
