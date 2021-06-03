@@ -172,6 +172,9 @@ TARGET_USES_MKE2FS := true
 # Power
 TARGET_USES_INTERACTION_BOOST := true
 
+# Properties
+TARGET_PRODUCT_PROP += $(PLATFORM_PATH)/product.prop
+
 # Recovery
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_leeco
 
@@ -191,6 +194,7 @@ SELINUX_IGNORE_NEVERALLOWS := true
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(PLATFORM_PATH)/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(PLATFORM_PATH)/sepolicy/private
 
 # Treble
