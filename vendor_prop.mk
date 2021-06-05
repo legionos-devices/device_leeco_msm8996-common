@@ -131,10 +131,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     vidc.debug.perf.mode=2 \
-    vidc.enc.dcvs.extra-buff-count=2 \
-    mmp.enable.3g2=true \
-    media.aac_51_output_enabled=true \
-    media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+    vidc.enc.dcvs.extra-buff-count=2
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
