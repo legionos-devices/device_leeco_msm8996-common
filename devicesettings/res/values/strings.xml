@@ -20,7 +20,7 @@
     <string name="battery_settings_title">Battery</string>
     <string name="camera_pref_title">Camera</string>
     <string name="powersave_settings_title">Power Save</string>
-    <string name="prefs_battery_saver_title">Apps optimization</string>
+    <string name="prefs_battery_saver_title">App optimization</string>
     <string name="prefs_battery_saver_summary">Battery optimization for system apps</string>
     <string name="prefs_app_options_title">Notification Guard</string>
     <string name="prefs_app_options_summary">Options for app notifications</string>
