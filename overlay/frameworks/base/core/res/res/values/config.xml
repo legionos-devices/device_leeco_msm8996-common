@@ -468,7 +468,4 @@
 	<!-- Specify custom blanking delay of the display -->
     <integer name="config_screen_off_delay">0</integer>
 	
-	<!-- Disable rounded corners on windows to improve graphics performance -->
-    <bool name="config_supportsRoundedCornersOnWindows">false</bool>
-	
 </resources>
