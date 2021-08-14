@@ -408,8 +408,7 @@
     <integer name="config_deviceHardwareKeys">83</integer>
     
     <!-- Button brightness -->
-    <integer name="config_button_brightness_default">20</integer>
-    <integer name="config_buttonBrightnessSettingDefault">20</integer>
+    <dimen name="config_buttonBrightnessSettingDefaultFloat">0.20</dimen>
 
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
